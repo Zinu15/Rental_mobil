@@ -17,7 +17,7 @@ class MobilController extends Controller
         $search = $request->query('search');
 
         if(!empty($search)){
-            $dataMobil = Mobil::where('mobil.idmobil','like','%'.$search.'%')
+            $dataMobil = Mobil::where('mobil.id','like','%'.$search.'%')
             ->orwhere('mobil.merek','like','%'.$search.'%')
             ->orwhere('mobil.nopol','like','%'.$search.'%')
             ->paginate(10)->fragment('mobil');
@@ -37,7 +37,7 @@ class MobilController extends Controller
     public function store(StoreMobilRequest $request)
     {
         $mobil = new Mobil;
-        $mobil->idmobil = $request->id;
+        $mobil->id = $request->id;
         $mobil->merek = $request->merek;
         $mobil->model = $request->model;
         $mobil->nopol = $request->nopol;
@@ -52,10 +52,10 @@ class MobilController extends Controller
      */
     public function show(Mobil $mobil)
     {
-       $id = $mobil->idmobil;
+       $id = $mobil->id;
        $data = Mobil::find($id);
        return view('mobil.formedit')->with([
-        'idmobil' => $id,
+        'id' => $id,
         'merek' => $data->merek,
         'model' => $data->model,
         'nopol' => $data->nopol,
@@ -72,7 +72,7 @@ class MobilController extends Controller
      */
     public function update(UpdateMobilRequest $request, Mobil $mobil)
     {
-        $id = $mobil->idmobil;
+        $id = $mobil->id;
         $data = $mobil->find($id);
         $data->merek = $request->merek;
         $data->model = $request->model;
@@ -88,7 +88,7 @@ class MobilController extends Controller
      */
     public function destroy(Mobil $mobil)
     {
-        $id = $mobil->idmobil;
+        $id = $mobil->id;
         $data = $mobil->find($id);
         $data->delete();
 

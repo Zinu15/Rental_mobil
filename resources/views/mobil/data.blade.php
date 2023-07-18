@@ -47,10 +47,10 @@
                     <td>{{ $row -> harga }}</td>
                     <td>{{ $row -> status }}</td>
                     <td>
-                        <button onclick="window.location='{{ url('mobil/'.$row->idmobil) }}'" type="button" class="btn btn-sm btn-info" title="Edit Data Mobil">
+                        <button onclick="window.location='{{ url('mobil/'.$row->id) }}'" type="button" class="btn btn-sm btn-info" title="Edit Data Mobil">
                             <i class="fas fa-edit"></i>
                         </button>
-                        <form onsubmit="return deleteData('{{ $row->merek }}')" method="POST" style="display: inline" action="{{ url('mobil/'.$row->idmobil) }}">
+                        <form onsubmit="return deleteData('{{ $row->merek }}')" method="POST" style="display: inline" action="{{ url('mobil/'.$row->id) }}">
                         @csrf
                         @method('DELETE')
                         <button type="submit" title="Hapus Data" class="btn btn-sm btn-danger">

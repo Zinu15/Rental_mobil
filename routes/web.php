@@ -16,7 +16,7 @@ use App\Http\Controllers\MobilController;
 Auth::routes();
 
 
-
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/mobil/add', function () {
     return view('mobil.formadd');

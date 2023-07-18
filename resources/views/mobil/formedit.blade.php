@@ -9,7 +9,7 @@
         </button>
     </div>
     <div class="card-body">
-     <form action="{{ url('mobil/'.$idmobil) }}" method="post">
+     <form action="{{ url('mobil/'.$id) }}" method="post">
      @csrf
      @method('PUT')
      <div class="row mb-3">

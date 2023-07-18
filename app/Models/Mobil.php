@@ -10,7 +10,7 @@ class Mobil extends Model
     use HasFactory;
 
     protected $table ='mobil';
-    protected $primaryKey = 'idmobil';
+    protected $primaryKey = 'id';
 
     public $timestamps = true;
 }

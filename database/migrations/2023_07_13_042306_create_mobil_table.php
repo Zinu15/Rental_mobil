@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('model');
             $table->string('nopol');
             $table->integer('harga');
-            $table->primary('id');
             $table->timestamps();
         });
     }
